@@ -6,12 +6,13 @@ import os.path
 """
 Parameters to change (possibly)
 """
-PARTICLES = 200
-N = 6 # number of states
+PARTICLES = 1000 # number of particles
+
 
 """
 NO NEED TO CHANGE ANYTHING BELOW
 """
+
 HEIGHT_THRESHOLD = 0.0  # meters
 GROUND_HEIGHT_THRESHOLD = -.4  # meters
 DT = 0.1
@@ -19,8 +20,17 @@ X_LANDMARK = 5.  # meters
 Y_LANDMARK = -5.  # meters
 EARTH_RADIUS = 6.3781E6  # meters
 
-x_acc_noise = 0.65
-yaw_vel_noise = 0.078
+STATES = 6 # number of states
+CONTROLS = 2 # number of control inputs
+MEASUREMENTS = 3 # number of measurements
+
+x_acc_std = 0#0.01 # m/s^2
+yaw_vel_std = 0#3/180*np.pi #rads per sec
+
+meas_cov = np.array([[0.1,0,0],
+                    [0,0.1,0],
+                    [0,0,3/180*np.pi]])
+
 
 
 def load_data(filename):
