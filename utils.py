@@ -6,7 +6,7 @@ import os.path
 """
 Parameters to change (possibly)
 """
-PARTICLES = 1000 # number of particles
+PARTICLES = 100 # number of particles
 
 
 """
@@ -24,12 +24,11 @@ STATES = 6 # number of states
 CONTROLS = 2 # number of control inputs
 MEASUREMENTS = 3 # number of measurements
 
-x_acc_std = 0#0.01 # m/s^2
-yaw_vel_std = 0#3/180*np.pi #rads per sec
+process_noise = {'x': 0.25, 'y':0.25, 'theta': np.pi}
 
-meas_cov = np.array([[0.1,0,0],
-                    [0,0.1,0],
-                    [0,0,3/180*np.pi]])
+meas_cov = np.array([[0.25,0,0],
+                    [0,0.25,0],
+                    [0,0,np.pi]])
 
 
 
